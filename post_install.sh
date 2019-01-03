@@ -35,7 +35,8 @@ yum -y install gcc72-c++ libXpm-devel xauth # for root
 yum -y install tmux parallel emacs # etc 
 
 # Timezone
-if [[ ! -z "$TZ" ]]; then
+ZONEINFO=$(find /usr/share/zoneinfo -type f|sed 's|/usr/share/zoneinfo/||') 
+if [[ ! -z "$TZ" ]] && [[ $ZONEINFO =~ (^|[[:space:]])"$TZ"($|[[:space:]]) ]]; then
     sed -i '/ZONE/s|UTC|'$TZ'|' /etc/sysconfig/clock
     ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
     reboot
