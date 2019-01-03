@@ -2,26 +2,16 @@
 
 yum -y update
 
-# EFS
-if [[ -e /shared/config/efs_id ]]; then
-    yum -y install amazon-efs-utils
-    fs_id=$(</shared/config/efs_id)
-    echo "${efs_id}:/ /efs efs _netdev" >> /etc/fstab
-    mount -a -t efs defaults
-fi
-
-# Additional packages
-if [[ -e /shared/config/packages ]]; then
-    for package in $(grep -v ^# /shared/config/packages); do
-        yum -y install $package
-    done
-fi
+# Installing packages
+yum -y install libcurl-devel gsl-devel # for bcftools
+yum -y install readline-devel sqlite-devel # for python
+yum -y install gcc72-c++ libXpm-devel xauth # for root
+yum -y install tmux parallel emacs # etc 
 
 # Timezone
 if [[ -e /shared/config/timezone ]]; then
     TZ=$(</shared/config/timezone)
     sed -i '/ZONE/s|UTC|'$TZ'|' /etc/sysconfig/clock
     ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
+    reboot
 fi
-
-reboot
