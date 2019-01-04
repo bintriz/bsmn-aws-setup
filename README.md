@@ -72,3 +72,9 @@ After the cluster finishes creating, log in:
 ```
 $ pcluster ssh bsmn
 ```
+
+## Documentation
+For more information about the AWS ParallelCluster, plase see the following docs.
+
+* [AWS ParallelCluster Project Documentation](https://aws-parallelcluster.readthedocs.io)
+* [AWS ParallelCluster Source Repository](https://github.com/aws/aws-parallelcluster)
