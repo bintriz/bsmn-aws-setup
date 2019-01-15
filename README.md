@@ -11,9 +11,9 @@ To configure AWS ParallelCluster, you need AWS security credentials as below. Pl
 * AWS Access Key ID
 * AWS Secret Access Key
 
-Then, you need to set it up the AWS EC2. Follow this guide ([Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html)) to set up. As a result, you get the below information.
+Then, you need to set up AWS EC2. Follow this guide ([Setting Up with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html)) to set up. As a result, you get the below information.
  
-* Amazon EC2 Key Pairs
+* Amazon EC2 Key Pair, which you save to your local computer as, say, `/path/to/user-key-pair-region.pem`
 * VPC and subnet
 
 ### Configuration file
@@ -29,7 +29,7 @@ cluster_template = bsmn
 [aws]
 aws_access_key_id = <b>#Your AWS Access Key ID</b>
 aws_secret_access_key = <b>#Your AWS Secret Access Key</b>
-aws_region_name = us-east-1
+aws_region_name = #Your AWS region e.g. us-east-1; see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions
 
 [cluster bsmn]
 key_name = <b>#Your Amazon EC2 Key Pairs</b>
@@ -67,10 +67,10 @@ Now you can create your cluster;
 $ pcluster create bsmn
 ```
 
-After the cluster finishes creating, log in:
+After the cluster finishes creating, log in with the EC2 key pair:
 
 ```
-$ pcluster ssh bsmn
+$ pcluster ssh bsmn -i /path/to/user-key-pair-region.pem
 ```
 
 ## Documentation
