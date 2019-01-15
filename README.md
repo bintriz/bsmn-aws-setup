@@ -29,7 +29,7 @@ cluster_template = bsmn
 [aws]
 aws_access_key_id = <b>#Your AWS Access Key ID</b>
 aws_secret_access_key = <b>#Your AWS Secret Access Key</b>
-aws_region_name = #Your AWS region e.g. us-east-1; see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions
+aws_region_name = <b>#Your AWS region</b> e.g. us-east-1; see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions
 
 [cluster bsmn]
 key_name = <b>#Your Amazon EC2 Key Pairs</b>
