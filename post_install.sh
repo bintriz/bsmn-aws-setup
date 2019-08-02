@@ -34,6 +34,9 @@ yum -y install readline-devel sqlite-devel # for python
 yum -y install gcc72-c++ libXpm-devel xauth # for root
 yum -y install tmux parallel emacs # etc 
 
+# Fix the location of omp.h.
+ln -s /usr/lib/gcc/x86_64-amazon-linux/4.8.5/include/omp.h /usr/local/include/
+
 # Timezone
 ZONEINFO=$(find /usr/share/zoneinfo -type f|sed 's|/usr/share/zoneinfo/||') 
 if [[ ! -z "$TZ" ]] && [[ $ZONEINFO =~ (^|[[:space:]])"$TZ"($|[[:space:]]) ]]; then
