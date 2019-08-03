@@ -33,6 +33,7 @@ yum -y install libcurl-devel gsl-devel # for compiling bcftools
 yum -y install readline-devel sqlite-devel # for compiling python
 yum -y install gcc72-c++ libXpm-devel xauth # for compiling root
 yum -y install gd gd-devel # gd library for GD perl module
+yum -y install glib2-devel # for compiling exonerate
 yum -y install tmux parallel emacs # etc
 
 # Fix the location of omp.h.
