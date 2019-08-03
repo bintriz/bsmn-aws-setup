@@ -32,7 +32,8 @@ yum -y update
 yum -y install libcurl-devel gsl-devel # for bcftools
 yum -y install readline-devel sqlite-devel # for python
 yum -y install gcc72-c++ libXpm-devel xauth # for root
-yum -y install tmux parallel emacs # etc 
+yum -y install tmux parallel emacs # etc
+yum -y install gd gd-devel # gd library for GD perl module
 
 # Fix the location of omp.h.
 ln -s /usr/lib/gcc/x86_64-amazon-linux/4.8.5/include/omp.h /usr/local/include/
