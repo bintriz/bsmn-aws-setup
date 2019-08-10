@@ -27,6 +27,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# Add users
+wget -qO- https://raw.githubusercontent.com/bintriz/bsmn-aws-setup/master/add_user.sh |bash
+
 # Installing packages
 yum -y update
 yum -y install libcurl-devel gsl-devel # for compiling bcftools
