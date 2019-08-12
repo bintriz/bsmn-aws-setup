@@ -27,7 +27,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Confiture SGE
+# Configure SGE
 wget -qO- https://raw.githubusercontent.com/bintriz/bsmn-aws-setup/master/configure_sge.sh |bash
 
 # Add users
