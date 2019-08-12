@@ -2,7 +2,7 @@
 
 source /etc/*cluster/cfnconfig
 
-if [[ $cfn_node_type = "MasterServer" ]] && qconf -sp threaded >/dev/null 2>&1; then
+if [[ $cfn_node_type = "MasterServer" ]] && ! qconf -sp threaded >/dev/null 2>&1; then
     qconf -Ap <<END
 pe_name            threaded
 slots              99999
