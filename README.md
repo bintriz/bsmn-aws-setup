@@ -34,7 +34,7 @@ aws_region_name = <b>#Your AWS region</b> e.g. us-east-1; see https://docs.aws.a
 [cluster bsmn]
 key_name = <b>#Your Amazon EC2 Key Pairs</b>
 post_install = https://raw.githubusercontent.com/bintriz/bsmn-aws-setup/master/post_install.sh
-post_install_args = --timezone America/Chicago
+post_install_args = "--timezone America/Chicago"
 master_instance_type = m5.large
 compute_instance_type = m5.12xlarge
 initial_queue_size = 0
