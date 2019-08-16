@@ -50,5 +50,4 @@ ZONEINFO=$(find /usr/share/zoneinfo -type f|sed 's|/usr/share/zoneinfo/||')
 if [[ ! -z "$TZ" ]] && [[ $ZONEINFO =~ (^|[[:space:]])"$TZ"($|[[:space:]]) ]]; then
     sed -i '/ZONE/s|UTC|'$TZ'|' /etc/sysconfig/clock
     ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
-    #reboot
 fi
