@@ -40,7 +40,6 @@ compute_instance_type = m5.12xlarge
 initial_queue_size = 0
 max_queue_size = 1000
 cluster_type = spot
-spot_price = 2.0
 vpc_settings = public
 ebs_settings = bsmn-ebs
 efs_settings = bsmn-efs
