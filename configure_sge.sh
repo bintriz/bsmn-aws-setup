@@ -1,8 +1,9 @@
 #!/bin/bash
 
 source /etc/*cluster/cfnconfig
+QCONF=/opt/sge/bin/lx-amd64/qconf
 
-if [[ $cfn_node_type = "MasterServer" ]] && ! qconf -sp threaded >/dev/null 2>&1; then
+if [[ $cfn_node_type = "MasterServer" ]] && ! $QCONF -sp threaded >/dev/null 2>&1; then
     cat >/tmp/threaded.conf <<END
 pe_name            threaded
 slots              99999
@@ -17,7 +18,7 @@ urgency_slots      min
 accounting_summary TRUE
 qsort_args         NONE
 END
-    qconf -Ap /tmp/threaded.conf
-    qconf -mattr queue pe_list threaded all.q
+    $QCONF -Ap /tmp/threaded.conf
+    $QCONF -mattr queue pe_list threaded all.q
     rm /tmp/threaded.conf
 fi
